@@ -38,18 +38,22 @@ pauseBtn.addEventListener("click", () => {
 });
 
 resetBtn.addEventListener("click", () => {
-    totalElapsedTime += Date.now() - startTime; // Add running time to total
-    localStorage.setItem("totalElapsedTime", totalElapsedTime); // Store total time
+    if (!paused) {
+        // Add only the actual running time to total
+        totalElapsedTime += Date.now() - startTime;
+        localStorage.setItem("totalElapsedTime", totalElapsedTime);
+    }
 
-    // Reset everything
+    // Reset timer state
     paused = true;
     clearInterval(intervalId);
     startTime = 0;
     elapsedTime = 0;
-    localStorage.removeItem("startTime"); // Remove stored start time
+    localStorage.removeItem("startTime");
     updateTotalTime();
     timeDisplay.textContent = "00:00:00";
 });
+
 
 // Double-click to reset total time
 totalTimeDisplay.addEventListener("dblclick", () => {
