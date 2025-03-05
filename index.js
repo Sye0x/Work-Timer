@@ -51,6 +51,13 @@ resetBtn.addEventListener("click", () => {
     timeDisplay.textContent = "00:00:00";
 });
 
+// Double-click to reset total time
+totalTimeDisplay.addEventListener("dblclick", () => {
+    totalElapsedTime = 0; // Reset total elapsed time
+    localStorage.setItem("totalElapsedTime", totalElapsedTime); // Save to LocalStorage
+    updateTotalTime(); // Update display
+});
+
 function updateTime() {
     elapsedTime = Date.now() - startTime;
     let secs = Math.floor((elapsedTime / 1000) % 60);

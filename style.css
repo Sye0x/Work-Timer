@@ -14,7 +14,7 @@
 }
 
 #clock {
-    color: #ffffff;
+    color: #06A77D;
     font-size: 140px;
     display: flex;
     justify-content: center;
@@ -52,11 +52,12 @@
 }
 
 #totalTimeDisplay {
-    color: #ffffff;
+    color: #DD1155;
     font-size: 30px;
     display: flex;
     justify-content: right;
     align-items: center;
+    cursor: pointer;
 }
 
 #header {
